@@ -1,6 +1,6 @@
-pipeline {
-    agent {
-        kubernetes {
+pipeline { //1
+    agent { //2
+        kubernetes { //3
             defaultContainer 'jnlp'
             yaml """
 apiVersion: v1
@@ -16,18 +16,18 @@ spec:
     - cat
     tty: true
 """
-        }
-    }
-    stages {
+        } //3
+    } // 2
+    stages { //1
 
-        stage('Run maven') {
+        stage('Run maven') { //2
             steps {
-                container('maven') {
+                container('maven') { //3
 
                         sh "mvn verify"
-                    }
-                }
-            }
-        }
+                 } //3
+            } //2
+        } //1
+
     }
-}
+} //1
