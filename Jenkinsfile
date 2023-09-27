@@ -24,7 +24,7 @@ spec:
             steps {
                 container('maven') { //3
 
-                        sh "mvn clean verify -DskipTests"
+                        sh "mvn -e clean verify -DskipTests"
                  } //3
             } //2
         } //1
